@@ -9,7 +9,7 @@ import Perf from 'react-addons-perf'
 import {createStore, applyMiddleware} from 'redux'
 import thunk from 'redux-thunk'
 import RootReducer from './reducers'
-import {Root} from 'components'
+import {Root} from 'components/index'
 import {Routing, history} from './routing'
 
 const configureStore = () => {
@@ -25,6 +25,7 @@ const configureStore = () => {
 
 const renderRoot = (Root) => {
     let store = configureStore()
+    console.log('hi!')
     let syncedHistory = syncHistoryWithStore(history, store)
     render(
         <Root key={Math.random()} routes={Routing} history={syncedHistory} store={store}/>, document.getElementById('app'))
