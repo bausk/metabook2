@@ -4,6 +4,7 @@ process.env.REACT_WEBPACK_ENV = 'dist'
 
 const exec = require('child_process').execSync
 const webpack = require('webpack')
+var path = require('path')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const ProgressPlugin = require('webpack/lib/ProgressPlugin')
 // const OfflinePlugin = require('offline-plugin')
@@ -23,7 +24,7 @@ else
 base.devtool = 'cheap-source-map'
 base.module.loaders.push({
     test: /\.css$/,
-    use: ExtractTextPlugin.extract({fallback: 'style-loader', use: 'css-loader'})
+    use: ExtractTextPlugin.extract({fallback: 'style-loader', use: ['css-loader?importLoaders=1', 'postcss-loader']})
 },{
     test: /\.scss$/,
     use: ExtractTextPlugin.extract({fallback: 'style-loader', use: ['css-loader', 'sass-loader']})

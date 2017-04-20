@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
 import {Grid, Header, Icon} from 'semantic-ui-react'
-import './footer.css'
+import style from './footer.css'
 
 export default class Footer extends Component {
     constructor(props) {
@@ -13,7 +13,7 @@ export default class Footer extends Component {
 
     render() {
         return (
-            <footer>
+            <footer className={style.footer}>
                 <div className="footer-inner">
                     <Grid>
                         <Grid.Row>
@@ -21,7 +21,7 @@ export default class Footer extends Component {
                                 <a href="https://github.com/Metnew/react-semantic.ui-starter">
                                     <Header as='h3' inverted>
                                         <Icon name='github'/>
-                                        <Header.Content>
+                                        <Header.Content className={style.custom}>
                                             React-Semantic.UI-Start
                                             <Header.Subheader>
                                                 Cash me on @Github howbow dah?

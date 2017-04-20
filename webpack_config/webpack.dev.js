@@ -2,6 +2,7 @@
 process.env.NODE_ENV = 'development'
 process.env.REACT_WEBPACK_ENV = 'dev'
 
+const path = require('path')
 const webpack = require('webpack')
 const base = require('./webpack.base')
 const FriendlyErrors = require('friendly-errors-webpack-plugin')
@@ -9,8 +10,15 @@ const FriendlyErrors = require('friendly-errors-webpack-plugin')
 base.devtool = 'eval-source-map'
 base.module.loaders.push({
     test: /\.css$/,
-    loaders: ['style-loader', 'css-loader', 'resolve-url-loader']
-}, {
+    loaders: ['style-loader', 'css-loader?modules&importLoaders=1', 'postcss-loader'],
+    include: path.join(__dirname, './../common')
+},
+    {
+    test: /\.css$/,
+    loaders: ['style-loader', 'css-loader', 'resolve-url-loader'],
+    exclude: path.join(__dirname, './../common')
+},
+    {
     test: /\.scss$/,
     loaders: ['style-loader', 'css-loader', 'resolve-url-loader', 'sass-loader']
 })
