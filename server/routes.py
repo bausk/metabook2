@@ -4,4 +4,6 @@ from config.server_config import CONFIG
 
 def setup_routes(app):
     app.router.add_get('/', index)
+    app.router.add_route('GET', '/{path:\w+}', index)
     app.router.add_static('/', CONFIG['files'])
+

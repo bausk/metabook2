@@ -2,6 +2,8 @@ module.exports = {
     plugins: [
         require('postcss-smart-import'),
         require('precss'),
-        require('postcss-cssnext')
+        require('postcss-nested'),
+        require('postcss-cssnext'),
+
     ]
 }
