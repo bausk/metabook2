@@ -7,9 +7,9 @@ const webpack = require('webpack')
 const base = require('./webpack.base')
 const FriendlyErrors = require('friendly-errors-webpack-plugin')
 
-base.devtool = 'eval-source-map'
+base.devtool = 'source-map'
 base.module.loaders.push({
-    test: /\.css$/,
+    test: /\.pcss$/,
     loaders: ['style-loader', 'css-loader?modules&importLoaders=1', 'postcss-loader'],
     include: path.join(__dirname, './../common')
 },

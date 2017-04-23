@@ -23,8 +23,11 @@ else
     exec('rm -rf dist/')
 base.devtool = 'cheap-source-map'
 base.module.loaders.push({
+    test: /\.pcss$/,
+    use: ExtractTextPlugin.extract({fallback: 'style-loader', use: ['css-loader?modules&importLoaders=1', 'postcss-loader']})
+},{
     test: /\.css$/,
-    use: ExtractTextPlugin.extract({fallback: 'style-loader', use: ['css-loader?importLoaders=1', 'postcss-loader']})
+    use: ExtractTextPlugin.extract({fallback: 'style-loader', use: ['css-loader']})
 },{
     test: /\.scss$/,
     use: ExtractTextPlugin.extract({fallback: 'style-loader', use: ['css-loader', 'sass-loader']})

@@ -11,6 +11,13 @@ import thunk from 'redux-thunk'
 import RootReducer from './reducers'
 import {Root} from 'components/index'
 import {Routing, history} from './routing'
+import Promise from 'promise-polyfill'
+
+// To add to window
+if (!window.Promise) {
+  window.Promise = Promise;
+}
+
 
 const configureStore = () => {
     let middleware = applyMiddleware(routerMiddleware(history))

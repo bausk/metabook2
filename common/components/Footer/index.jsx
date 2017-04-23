@@ -1,8 +1,14 @@
 import React, {Component} from 'react'
 import {Grid, Header, Icon} from 'semantic-ui-react'
-import style from './footer.css'
+import style from './footer.pcss'
+
 
 export default class Footer extends Component {
+
+    static propTypes = {
+        children: React.PropTypes.object,
+    }
+
     constructor(props) {
         super(props)
     }
@@ -12,6 +18,11 @@ export default class Footer extends Component {
     }
 
     render() {
+
+        if(this.props.children)
+            console.log('kek1');
+        else
+            console.log('kek2');
         return (
             <footer className={style.footer}>
                 <div className="footer-inner">
@@ -34,6 +45,6 @@ export default class Footer extends Component {
                     </Grid>
                 </div>
             </footer>
-        )
+        );
     }
 }

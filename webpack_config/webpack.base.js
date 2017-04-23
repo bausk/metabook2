@@ -8,7 +8,7 @@ const _ = require('./utils')
 
 module.exports = {
     entry: {
-        client: './common/index.jsx'
+        client: ['whatwg-fetch', './common/index.jsx']
     },
     output: {
         path: _.outputPath,
@@ -22,7 +22,7 @@ module.exports = {
     },
     resolve: {
         extensions: [
-            '.js', '.jsx', '.css', '.json', '.scss'
+            '.js', '.jsx', '.css', '.json', '.scss', 'pcss'
         ],
         alias: {
             actions: `${config.srcPath}/actions/`,

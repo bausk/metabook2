@@ -51,7 +51,7 @@ export default class LoginComponent extends Component {
 
     async login(e) {
         e.preventDefault()
-        let {login} = this.props
+        let login = this.props.login
         let {username, password} = this.state
         let data = {username, password}
         // set loading state

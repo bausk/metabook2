@@ -19,11 +19,11 @@ export function isLoggedIn() {
 }
 
 export async function login_API(data) {
-    if (process.env.BUILD_GH_PAGES) {
+    //if (process.env.BUILD_GH_PAGES) {
         return {
             ok: true,
             token: 'Just_for_demo'
         }
-    }
+    //}
     return await post('/auth', data)
 }
